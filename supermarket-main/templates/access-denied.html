@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>Нет доступа</title>
+</head>
+<body>
+    <center>
+        <h1>У вас нет доступа!</h1>
+        {% if client %}
+        <form action="/">
+            <input type="submit" value="Вернуться">
+        </form>
+        {% endif %}
+        {% if not client %}
+        <form action="/staff-profile">
+            <input type="submit" value="Вернуться">
+        </form>
+        {% endif %}
+    </center>
+</body>
+</html>

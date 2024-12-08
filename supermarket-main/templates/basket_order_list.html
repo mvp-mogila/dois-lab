@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basket</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+{% import 'basket_item.html' as utils %}
+    <div class="d-flex justify-content-center my-2">
+        <a class="btn btn-secondary "  role="button" href="{{url_for('default_handler')}}">Меню</a>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row m-3">
+                        <span class="fs-4">Товары</span>
+                        {% for item in items %}
+                        {{ utils.render_item(item, show_form=True, show_amount=False) }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <span class="fs-4 row">Корзина</span>
+                    <div class="row border-bottom pb-2">
+                        <a href="{{ url_for('basket_app.clear_basket') }}" class="col-auto">Очистить</a>
+                    </div>
+                    {% if basket %}
+                        {% for key in basket %}
+                            {{ utils.render_item(basket[key], show_form=False, show_amount=True) }}
+                        {% endfor %}
+                    <a href="{{ url_for('basket_app.register_order') }}" role="button" class="btn btn-primary mt-2">Оформить заказ</a>
+                    {% else %}
+                        <span class="fs-4 row">Корзина пуста</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

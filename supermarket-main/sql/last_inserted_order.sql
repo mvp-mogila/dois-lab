@@ -1,0 +1,1 @@
+SELECT max(`id`) AS id FROM `Order` WHERE `user_id`='$user_id';

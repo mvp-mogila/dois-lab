@@ -1,0 +1,1 @@
+INSERT INTO Order_list(`product_id`, `quantity`, `order_id`, `cost`) VALUES('$product_id', '$quantity', '$order_id', '$cost');

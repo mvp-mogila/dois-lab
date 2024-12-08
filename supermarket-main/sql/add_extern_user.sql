@@ -1,0 +1,1 @@
+INSERT INTO User (user_login, user_pass, user_group) VALUES ('$login', '$password', NULL);

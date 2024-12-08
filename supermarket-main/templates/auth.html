@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>Авторизация</title>
+</head>
+<body>
+    <center>
+        <form method="get">
+            <input type="text" placeholder="логин" name="login">
+            <input type="password" placeholder="пароль" name="pass">
+            <input type="submit" value="Войти">
+        </form>
+        {% if user_not_found and user_login %}
+        <h3>Пользователь {{ user_login }} не найден или введен неправтльный пароль</h3>
+        {% endif %}
+        <form action="/auth/sign-up">
+            <input type="submit" value="Создать аккаунт">
+        </form>
+        <form action="/">
+            <input type="submit" value="Вернуться">
+        </form>
+    </center>
+</body>
+</html>

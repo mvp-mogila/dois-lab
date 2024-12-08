@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Супермаркет</title>
+    </head>
+    <body>
+        <center>
+            <h1>Супермаркет</h1>
+            <form action="/catalog">
+                <input type="submit" value="Перейти в каталог">
+            </form>
+            {% if logged and not user_group %}
+            <form action="/client-profile">
+                <input type="submit" value="Перейти в профиль">
+            </form>
+            <form action="/order">
+                <input type="submit" value="Сделать заказ">
+            </form>
+            {% endif %}
+            {% if logged and user_group %}
+            <form action="/staff-profile">
+                <input type="submit" value="Перейти в профиль">
+            </form>
+            <form action="/report">
+                <input type="submit" value="Отчетность">
+            </form>
+            {% endif %}
+            {% if not logged %}
+            <form action="/auth">
+                <input type="submit" value="Войти в аккаунт">
+            </form>
+            {% endif %}
+        </center>
+    </body>
+</html>

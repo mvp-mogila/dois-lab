@@ -1,0 +1,6 @@
+{
+    "admin": ["staff-profile", "report", "stats", "employees", "bills", "deliveries"],
+    "manager": ["staff-profile", "report", "stats"],
+    "accountant": ["staff-profile", "bills", "stats"],
+    "logistician": ["staff-profile", "deliveries"]
+}

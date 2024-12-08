@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>Создание аккаунта</title>
+    </head>
+    <body>
+        <center>
+            <h1>Создать аккаунт</h1>
+            <form method="POST" autocomplete="off">
+                <input type="text" id="user_login" name="login" placeholder="логин"/>
+                <input type="password" id="user_pass" name="pass" placeholder="пароль"/>
+                <input type="submit" value="Создать">
+            </form>
+            {% if user_found %}
+            <h3>Пользователь с таким логином уже существует</h3>
+            {% endif %}
+            {% if user_created %}
+            <h3>Аккаунт создан</h3>
+            <form action="/auth">
+                <input type="submit" value="Войти в аккаунт">
+            </form>
+            {% endif %}
+            <form action="/auth">
+                <input type="submit" value="Вернуться">
+            </form>
+        </center>
+    </body>
+</html>

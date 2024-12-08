@@ -1,0 +1,1 @@
+INSERT INTO ExternUser (user_login, user_pass, user_group) VALUES ('$login', '$pass', 'client');

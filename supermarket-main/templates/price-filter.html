@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>Каталог</title>
+    </head>
+    <body>
+        <center>
+            <h1>Каталог Супермаркета</h1>
+            <form method="GET" autocomplete="off">
+                <label for="product_price_lower">Введите цену продукта от:</label>
+                <input type="text" id="product_price_lower" name="lower_bound"/>
+                <label for="product_price_upper"> до:</label>
+                <input type="text" id="product_price_upper" name="upper_bound"/>
+                <input type="submit" value="Поиск">
+            </form>
+        </center>
+        {% if flag %}
+            <center>
+                <h3>Ничего не найдено</h3>
+            </center>
+        {% endif %}
+        {% if not flag %}
+            {% if rows_count %}
+                <h2>Результаты поиска:</h2>
+                <table class="table">
+                    <thead class="head">
+                        <tr>
+                            <th>Наименование</th>
+                            <th>Категория</th>
+                            <th>Цкна</th>
+                            <th>Вес</th>
+                        </tr>
+                    </thead>
+                    <tbody class="body">
+                        {% for row in context %}
+                        <tr>
+                            <td>{{row['product_name']}}</td>
+                            <td>{{row['product_category']}}</td>
+                            <td>{{row['product_price']}}</td>
+                            <td>{{row['product_weight']}} {{row['product_weight_measure']}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endif %}
+        <center>
+            <form action="/catalog">
+                <input type="submit" value="Вернуться в каталог">
+            </form>
+        </center>
+    </body>
+</html>

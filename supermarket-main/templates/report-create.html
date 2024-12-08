@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Супермаркет</title>
+    </head>
+    <body>
+        <center>
+            <h1>{{ title }}</h1>
+            <form action="" method="POST" class="search_form">
+                <div class="input_form">
+                    <label>Продукт:</label>
+                    <input type="text" name="product_name">
+                </div>
+                <div class="input_form">
+                    <label>Год:</label>
+                    <input type="text" name="year">
+                </div>
+                <div class="input_form">
+                    <label>Месяц:</label>
+                    <input type="text" name="month">
+                </div>
+                <div class="buttons">
+                    <input type="submit" class="button" value="Отправить">
+                    <input type="reset" class="button" value="Очистить">
+                </div>
+            </form>
+            <form action="/report/">
+                <input type="submit" class="button" value="Назад">
+            </form>
+            {% if report %}
+                <h2>Результаты поиска</h2>
+                <table class="table">
+                    <thead class="head">
+                        <tr>
+                            <th>Наименование товара</th>
+                            <th>Год</th>
+                            <th>Месяц</th>
+                            <th>Общая стоимость</th>
+                        </tr>
+                    </thead>
+                    <tbody class="body">
+                        <tr>
+                            <td>{{ product_name }}</td>
+                            <td>{{report['year']}}</td>
+                            <td>{{report['month']}}</td>
+                            <td>{{report['total_cost']}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            {% endif %}
+        </center>
+    </body>
+</html>

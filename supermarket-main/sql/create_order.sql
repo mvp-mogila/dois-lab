@@ -1,0 +1,1 @@
+INSERT INTO `Order`(`user_id`, `date`) VALUES('$user_id', CURRENT_DATE);
